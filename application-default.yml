@@ -1,0 +1,8 @@
+gateway:
+  service:
+    uri: http://localhost:8080
+    prefix: /services
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka/}

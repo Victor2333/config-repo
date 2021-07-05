@@ -1,0 +1,9 @@
+server:
+  port: 8081
+grpc:
+  provider:
+    name: grpc-provider
+eureka:
+  instance:
+    metadata-map:
+      registry-to-gateway: true

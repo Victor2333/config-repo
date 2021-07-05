@@ -1,0 +1,26 @@
+server:
+  port: 8082
+  forward-headers-strategy: NATIVE
+spring:
+  boot:
+    admin:
+      ui:
+        public-url: ${gateway.service.uri}${gateway.service.prefix}/${spring.application.name}
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+    metadata-map:
+      startup: ${random.int}    #needed to trigger info and endpoint update after restart
+      registry-to-gateway: true
+  client:
+    registryFetchIntervalSeconds: 5
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
